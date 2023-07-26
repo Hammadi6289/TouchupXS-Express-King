@@ -11,3 +11,11 @@
    2. add product images
    3. render products
    4. style products
+      /////////// Start from 49 mins. Less no. 6
+6. Add page routing
+   1. npm i react-router-dom
+   2. create route for home screen
+   3. create router for product screen
+   4. Installation of React Router
+   5. useParams() Hook
+   6. Router Link

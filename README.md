@@ -1,4 +1,4 @@
-# MERN AMAZONA
+# MERN TouchupXS - Express King
 
 # Sequence
 
@@ -47,3 +47,8 @@
     2. npm install react-bootstrap bootstrap --force
     3. npm install react-router-bootstrap (For <LinkContainer> )
     4. update App.js
+11. Create Product and Rating Component
+    1. create Rating component
+    2. Create Product component
+    3. Use Rating component in Product component using font awesome (f as) ATTN Need to add a link in index.html for this.
+    4. Make it look like Amazon

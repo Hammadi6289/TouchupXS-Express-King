@@ -52,6 +52,44 @@ const data = {
       description:
         'Each kit contains 2 oz basecoat mixed specifically for your car or truck and a 1 oz. container of high gloss durable clear coat as well as surface cleaner Kit. Includes micro-fine brushes for precision touch up',
     },
+    {
+      name: 'TouchupXS 1oz Touch Up Paint',
+      slug: 'TouchupXS 1oz Touch Up Paint',
+      category: '1oz Touchup Paint',
+      image: '/images/p5.jpg', // 679px × 829px
+      price: 10.99,
+      countInStock: 1000,
+      brand: 'TouchupXS',
+      rating: 5,
+      numReviews: 20,
+      description:
+        'Each kit contains 1 oz basecoat mixed specifically for your car or truck',
+    },
+    {
+      name: 'TouchupXS 1oz Touch Up Paint With E-Z Dabber',
+      slug: 'TouchupXS 1oz Touch Up Paint With E-Z Dabber',
+      category: '2oz Touchup Paint',
+      image: '/images/p6.jpg', // 679px × 829px
+      price: 15.99,
+      countInStock: 1000,
+      brand: 'TouchupXS',
+      rating: 4,
+      numReviews: 10,
+      description: 'Each kit contains 2 oz basecoat bottle with ez dabber',
+    },
+    {
+      name: 'TouchupXS 12oz Spray Kit',
+      slug: 'TouchupXS 12oz Spray Kit',
+      category: '12oz Aerosol Can',
+      image: '/images/p7.jpg', // 679px × 829px
+      price: 34.99,
+      countInStock: 500,
+      brand: 'TouchupXS',
+      rating: 5,
+      numReviews: 45,
+      description:
+        '12 ounce spray paint can filled with color basecoat and 12 ounce spray can filled with Clearcoat',
+    },
   ],
 };
 export default data;

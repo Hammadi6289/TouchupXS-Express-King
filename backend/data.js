@@ -32,7 +32,7 @@ const data = {
       category: '2oz Touchup Paint',
       image: '/images/p3.jpg', // 679px × 829px
       price: 8.99,
-      countInStock: 1000,
+      countInStock: 0,
       brand: 'TouchupXS',
       rating: 4,
       numReviews: 15,

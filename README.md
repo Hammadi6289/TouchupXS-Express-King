@@ -52,3 +52,6 @@
     2. Create Product component
     3. Use Rating component in Product component using font awesome (f as) ATTN Need to add a link in index.html for this.
     4. Make it look like Amazon
+12. Create Product Details Screen
+    1. fetch product from backend
+    2. create 3 columns for image, info and action

@@ -1,6 +1,7 @@
 const data = {
   products: [
     {
+      _id: '1', // underscore will make it compatible with MongoDB '1' is string
       name: 'TouchupXS 1oz Basecoat and Clearcoat With E-Z Dabber',
       slug: 'TouchupXS 1oz Basecoat and Clearcoat With E-Z Dabber',
       category: 'Touchup Paint with ez dabber',
@@ -14,6 +15,7 @@ const data = {
         'All of our touch-up paints are custom mixed in house to ensure a match to your car. Unlike other companies selling lacquer, all of our touches up paints are modern durable urethane finishes. We are the only Amazon sellers selling professional quality paint and touch up products',
     },
     {
+      _id: '2', // underscore will make it compatible with MongoDB '1' is string
       name: 'TouchupXS 1oz Basecoat Clearcoat and Primer With E-Z Dabber',
       slug: 'TouchupXS 1oz Basecoat Clearcoat and Primer With E-Z Dabber',
       category: 'Touchup Paint with ez dabber',
@@ -27,6 +29,7 @@ const data = {
         'All of our touch-up paints are custom mixed in house to ensure a match to your car. Unlike other companies selling lacquer, all of our touches up paints are modern durable urethane finishes. We are the only Amazon sellers selling professional quality paint and touch up products',
     },
     {
+      _id: '3', // underscore will make it compatible with MongoDB '1' is string
       name: 'TouchupXS 2oz & 1oz Combo Touch Up Kit',
       slug: 'TouchupXS 2oz & 1oz Combo Touch Up Kit',
       category: '2oz Touchup Paint',
@@ -40,6 +43,7 @@ const data = {
         'Each kit contains 2 oz basecoat mixed specifically for your car or truck and a 1 oz. container of high gloss durable clear coat. Includes micro-fine brushes for precision touch up application and concise instructions',
     },
     {
+      _id: '4', // underscore will make it compatible with MongoDB '1' is string
       name: 'TouchupXS 2oz & 1oz Combo Touch Up Kit with Surface Cleaner',
       slug: 'TouchupXS 2oz & 1oz Combo Touch Up Kit with Surface Cleaner',
       category: '2oz Touchup Paint',
@@ -53,6 +57,7 @@ const data = {
         'Each kit contains 2 oz basecoat mixed specifically for your car or truck and a 1 oz. container of high gloss durable clear coat as well as surface cleaner Kit. Includes micro-fine brushes for precision touch up',
     },
     {
+      _id: '5', // underscore will make it compatible with MongoDB '1' is string
       name: 'TouchupXS 1oz Touch Up Paint',
       slug: 'TouchupXS 1oz Touch Up Paint',
       category: '1oz Touchup Paint',
@@ -66,6 +71,7 @@ const data = {
         'Each kit contains 1 oz basecoat mixed specifically for your car or truck',
     },
     {
+      _id: '6', // underscore will make it compatible with MongoDB '1' is string
       name: 'TouchupXS 1oz Touch Up Paint With E-Z Dabber',
       slug: 'TouchupXS 1oz Touch Up Paint With E-Z Dabber',
       category: '2oz Touchup Paint',
@@ -78,6 +84,7 @@ const data = {
       description: 'Each kit contains 2 oz basecoat bottle with ez dabber',
     },
     {
+      _id: '7', // underscore will make it compatible with MongoDB '1' is string
       name: 'TouchupXS 12oz Spray Kit',
       slug: 'TouchupXS 12oz Spray Kit',
       category: '12oz Aerosol Can',

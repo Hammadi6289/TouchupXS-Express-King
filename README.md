@@ -65,3 +65,11 @@
     2. define reducer
     3. create store provider
     4. implement add to cart button click handler
+15. Enhance Add To Cart button
+    1. When we were clicking add to the cart button multiple times it was duplicating the product instead of add up the qty(Same as Walmart issue WW)
+    2. check exist item in the cart
+    3. check count in stock in backend and if qty > Stoct then deal
+16. Create Cart Screen (Starting UI Part)
+    1. create 2 columns
+    2. display items list
+    3. create action column for add or delete item

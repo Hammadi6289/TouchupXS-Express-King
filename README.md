@@ -73,3 +73,8 @@
     1. create 2 columns
     2. display items list
     3. create action column for add or delete item
+17. Complete Cart Screen
+    1. click handler for inc/dec item in cart screen
+    2. click handler for remove item from cart screen
+    3. click handler for checkout button
+    4. Out of stock button light disabled.

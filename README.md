@@ -78,3 +78,4 @@
     2. click handler for remove item from cart screen
     3. click handler for checkout button
     4. Out of stock button light disabled.
+    5. Saving cart settings to the Local storage incase of page refresh.

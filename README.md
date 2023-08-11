@@ -79,3 +79,11 @@
     3. click handler for checkout button
     4. Out of stock button light disabled.
     5. Saving cart settings to the Local storage incase of page refresh.
+18. Create Signin Screen
+    1. create sign in form
+    2. add email and password
+    3. add signin button
+19. Connect To MongoDB Database
+    1. create atlas monogodb database
+    2. npm install mongoose & npm install dotenv
+    3. connect to mongodb database

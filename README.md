@@ -92,3 +92,13 @@
     2. create seed route
     3. use route in server.js
     4. seed sample product
+    5. Run this at http://localhost:5000/api/products
+21. Seed Sample Users
+    1. create user model
+    2. seed sample users in data.js
+    3. Run this at http://localhost:5000/api/seed
+22. Create Signin Backend API
+    1. create signin api
+    2. npm install jsonwebtoken
+    3. define generateToken
+    4. Advanced REST client install to test POST Request.

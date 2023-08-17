@@ -3,16 +3,25 @@ import Product from '../models/productModel.js';
 import data from '../data.js';
 import User from '../models/userModel.js';
 
-const seedRouter = express.Router();
+const seedRouter = express.Router(); // seerRouter is an object from express.Router function
 
 seedRouter.get('/', async (req, res) => {
-  //await Product.deleteOne(); //remove
-  //await Product.deleteMany({});
-  await Product.remove({}); //remove
-  const createdProducts = await Product.insertMany(data.products);
+  try {
+    await Product.deleteMany({});
+    const createdProducts = await Product.insertMany(data.products);
 
-  await User.remove({}); //remove
-  const createdUsers = await Product.insertMany(data.Users);
-  res.send({ createdProducts, createdUsers });
+    await User.deleteMany({});
+    const createdUsers = await User.insertMany(data.users);
+
+    res.send({ createdProducts, createdUsers });
+  } catch (error) {
+    res.status(500).send({ error: 'Error seeding the database' });
+  }
 });
 export default seedRouter;
+
+//await User.deleteMany({}); //remove
+//await Product.deleteMany({});
+
+//await Product.remove({});
+//await User.remove({});

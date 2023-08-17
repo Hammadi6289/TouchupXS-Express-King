@@ -102,3 +102,8 @@
     2. npm install jsonwebtoken
     3. define generateToken
     4. Advanced REST client install to test POST Request.
+23. Complete Signin Screen
+    1. handle submit action
+    2. save token in store and local storage
+    3. show user name in header
+    4. Install react-tostify --force for making alert message prettier

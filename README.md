@@ -107,3 +107,7 @@
     2. save token in store and local storage
     3. show user name in header
     4. Install react-tostify --force for making alert message prettier
+24. Create Shipping Screen screen and UI for Shipping address
+    1. create form inputs
+    2. handle save shipping address
+    3. add checkout wizard bar (CheckoutSteps component)

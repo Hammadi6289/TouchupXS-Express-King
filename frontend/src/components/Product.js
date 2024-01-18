@@ -30,11 +30,16 @@ function Product(props) {
   return (
     <Card>
       <Link to={`/product/${product.slug}`}>
-        <img src={product.image} className="card-img-top" alt={product.name} />
+        <img
+          src={product.image}
+          className="card-img-top mx-auto"
+          alt={product.name}
+          style={{ height: '300px', objectFit: 'cover' }}
+        />
       </Link>
       <Card.Body>
         <Link to={`/product/${product.slug}`}>
-          <Card.Title>{product.name}</Card.Title>
+          <Card.Title style={{ fontSize: '12px' }}>{product.name}</Card.Title>
         </Link>
         <Rating rating={product.rating} numReviews={product.numReviews} />
         <Card.Text>${product.price}</Card.Text>
@@ -49,4 +54,5 @@ function Product(props) {
     </Card>
   );
 }
+
 export default Product;

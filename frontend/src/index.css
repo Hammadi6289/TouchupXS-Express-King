@@ -26,20 +26,30 @@ main {
   color: #ffc000;
 }
 
+.products {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
 .product {
   border: 1px #404040 solid;
-  margin: 1rem;
+  margin: 0.5rem; /* Adjust the margin to reduce space between products */
 }
+
 .product img {
   width: 100%;
-  max-width: 400px;
+  height: 80px; /* Set a fixed height as needed */
+  object-fit: cover;
 }
+
 .product-info {
   padding: 1rem;
 }
 
 .img-large {
   max-width: 100%;
+  max-height: 80%;
 }
 .img-thumbnail {
   height: 80px;
@@ -53,7 +63,7 @@ checkout-steps > div {
 }
 .checkout-steps > div.active {
   border-bottom: 0.2rem solid #f08000;
-  color: #f08000;
+  color: #cb4f22;
 }
 /* sidebar */
 .navbar-brand {
@@ -79,4 +89,9 @@ checkout-steps > div {
 }
 .text-bold {
   font-weight: bold;
+}
+.vertical-line {
+  border-left: 2px solid #cc6c5e; /* Adjust the color and thickness as needed */
+  height: 150%;
+  margin: 0 auto;
 }

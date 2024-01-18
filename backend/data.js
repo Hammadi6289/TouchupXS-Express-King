@@ -10,8 +10,20 @@ const data = {
     },
     {
       name: 'Hammad',
-      email: 'hammad6289@gmail.com',
+      email: 'Hammad6289@gmail.com',
       password: bcrypt.hashSync('123456'),
+      isAdmin: true,
+    },
+    {
+      name: 'Chohan',
+      email: 'Hammadxstech@gmail.com',
+      password: bcrypt.hashSync('123456'),
+      isAdmin: false,
+    },
+    {
+      name: 'xstechsolution',
+      email: 'xstechsolution@gmail.com',
+      password: bcrypt.hashSync('Neemsay1133'),
       isAdmin: false,
     },
   ],

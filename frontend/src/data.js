@@ -2,7 +2,7 @@ const data = {
   products: [
     {
       name: 'TouchupXS 1oz Basecoat and Clearcoat With E-Z Dabber',
-      slug: 'TouchupXS 1oz Basecoat and Clearcoat With E-Z Dabber',
+      slug: 'TouchupXS 1oz Basecoat and Clearcoat With E-Z Dabber', // Slug = unique identifying part of web address
       category: 'Touchup Paint with ez dabber',
       image: '/images/p1.jpg', // 679px × 829px
       price: 20,

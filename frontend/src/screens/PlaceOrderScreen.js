@@ -87,12 +87,21 @@ export default function PlaceOrderScreen() {
       <Helmet>
         <title>Preview Order</title>
       </Helmet>
-      <h1 className="my-3">Preview Order</h1>
+      <h1
+        className="my-3"
+        style={{ color: 'rgb(204, 92, 84)', fontWeight: 'bold' }}
+      >
+        Preview Order
+      </h1>
       <Row>
         <Col md={8}>
           <Card className="mb-3">
             <Card.Body>
-              <Card.Title>Shipping</Card.Title>
+              <Card.Title
+                style={{ color: 'rgb(204, 92, 84)', fontWeight: 'bold' }}
+              >
+                Shipping details
+              </Card.Title>
               <Card.Text>
                 <strong>Name:</strong> {cart.shippingAddress.fullName} <br />
                 <strong>Address: </strong> {cart.shippingAddress.address},
@@ -105,7 +114,11 @@ export default function PlaceOrderScreen() {
 
           <Card className="mb-3">
             <Card.Body>
-              <Card.Title>Payment</Card.Title>
+              <Card.Title
+                style={{ color: 'rgb(204, 92, 84)', fontWeight: 'bold' }}
+              >
+                Payment Method
+              </Card.Title>
               <Card.Text>
                 <strong>Method:</strong> {cart.paymentMethod}
               </Card.Text>
@@ -115,12 +128,16 @@ export default function PlaceOrderScreen() {
 
           <Card className="mb-3">
             <Card.Body>
-              <Card.Title>Items</Card.Title>
+              <Card.Title
+                style={{ color: 'rgb(204, 92, 84)', fontWeight: 'bold' }}
+              >
+                Review Items
+              </Card.Title>
               <ListGroup variant="flush">
                 {cart.cartItems.map((item) => (
                   <ListGroup.Item key={item._id}>
                     <Row className="align-items-center">
-                      <Col md={6}>
+                      <Col md={10}>
                         <img
                           src={item.image}
                           alt={item.name}
@@ -128,10 +145,10 @@ export default function PlaceOrderScreen() {
                         ></img>{' '}
                         <Link to={`/product/${item.slug}`}>{item.name}</Link>
                       </Col>
-                      <Col md={3}>
+                      <Col md={1}>
                         <span>{item.quantity}</span>
                       </Col>
-                      <Col md={3}>${item.price}</Col>
+                      <Col md={1}>${item.price}</Col>
                     </Row>
                   </ListGroup.Item>
                 ))}
@@ -143,7 +160,11 @@ export default function PlaceOrderScreen() {
         <Col md={4}>
           <Card>
             <Card.Body>
-              <Card.Title>Order Summary</Card.Title>
+              <Card.Title
+                style={{ color: 'rgb(204, 92, 84)', fontWeight: 'bold' }}
+              >
+                Order Summary
+              </Card.Title>
               <ListGroup variant="flush">
                 <ListGroup.Item>
                   <Row>

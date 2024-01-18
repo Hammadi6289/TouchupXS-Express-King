@@ -45,30 +45,63 @@ export default function SigninScreen() {
       <Helmet>
         <title>Sign In</title>
       </Helmet>
-      <h1 className="my-3">Sign In</h1>
+
+      {/* Logo Section */}
+      <div className="logo-container" style={{ textAlign: 'center' }}>
+        <img
+          src="/images/TouchupXSLogo.png"
+          alt="Company Logo"
+          className="company-logo"
+          style={{ width: '300px', height: 'auto' }}
+        />
+      </div>
+      <h2 className="my-3">Sign In</h2>
       <Form onSubmit={submitHandler}>
-        <Form.Group className="mb-3" controlId="email">
-          <Form.Label>Email</Form.Label>
+        <Form.Group className="mb-2" controlId="email">
+          <Form.Label>
+            <strong>Email</strong>
+          </Form.Label>
           <Form.Control
             type="email"
             required
             onChange={(e) => setEmail(e.target.value)}
+            style={{
+              width: '500px',
+              border: '1px solid #000',
+              borderRadius: '5px',
+            }}
           />
         </Form.Group>
-        <Form.Group className="mb-3" controlId="password">
-          <Form.Label>Password</Form.Label>
+        <Form.Group className="mb-2" controlId="password">
+          <Form.Label>
+            <strong>Password</strong>
+          </Form.Label>
           <Form.Control
             type="password"
             required
             onChange={(e) => setPassword(e.target.value)}
+            style={{
+              width: '500px',
+              border: '1px solid #000',
+              borderRadius: '5px',
+            }}
           />
         </Form.Group>
-        <div className="mb-3">
+        <div className="mb-2">
           <Button type="submit">Sign In</Button>
         </div>
-        <div className="mb-3">
-          New customer?{' '}
-          <Link to={`/signup?redirect=${redirect}`}>Create your account</Link>
+        <div>
+          <span>New to our Website? </span>
+          <div className="mb-2 d-flex justify-content-center">
+            <Button
+              variant="primary"
+              as={Link}
+              to={`/signup?redirect=${redirect}`}
+              style={{ backgroundColor: '#87CEEB', color: 'black' }}
+            >
+              <strong>Create your TouchupXS account</strong>
+            </Button>
+          </div>
         </div>
       </Form>
     </Container>

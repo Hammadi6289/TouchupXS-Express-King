@@ -66,36 +66,72 @@ export default function ProfileScreen() {
       <Helmet>
         <title>User Profile</title>
       </Helmet>
-      <h1 className="my-3">User Profile</h1>
+      <div className="logo-container" style={{ textAlign: 'center' }}>
+        <img
+          src="/images/TouchupXSLogo.png"
+          alt="Company Logo"
+          className="company-logo"
+          style={{ width: '300px', height: 'auto' }}
+        />
+      </div>
+      <h2 className="my-3">User Profile</h2>
       <form onSubmit={submitHandler}>
-        <Form.Group className="mb-3" controlId="name">
-          <Form.Label>Name</Form.Label>
+        <Form.Group className="mb-2" controlId="name">
+          <Form.Label>
+            <strong>Name</strong>
+          </Form.Label>
           <Form.Control
             value={name}
+            style={{
+              width: '500px',
+              border: '1px solid #000',
+              borderRadius: '5px',
+            }}
             onChange={(e) => setName(e.target.value)}
             required
           />
         </Form.Group>
-        <Form.Group className="mb-3" controlId="name">
-          <Form.Label>Email</Form.Label>
+        <Form.Group className="mb-2" controlId="name">
+          <Form.Label>
+            <strong>Email</strong>
+          </Form.Label>
           <Form.Control
             type="email"
             value={email}
+            style={{
+              width: '500px',
+              border: '1px solid #000',
+              borderRadius: '5px',
+            }}
             onChange={(e) => setEmail(e.target.value)}
             required
           />
         </Form.Group>
-        <Form.Group className="mb-3" controlId="password">
-          <Form.Label>Password</Form.Label>
+        <Form.Group className="mb-2" controlId="password">
+          <Form.Label>
+            <strong>Password</strong>
+          </Form.Label>
           <Form.Control
             type="password"
+            style={{
+              width: '500px',
+              border: '1px solid #000',
+              borderRadius: '5px',
+            }}
             onChange={(e) => setPassword(e.target.value)}
           />
         </Form.Group>
-        <Form.Group className="mb-3" controlId="password">
-          <Form.Label>Confirm Password</Form.Label>
+        <Form.Group className="mb-2" controlId="password">
+          <Form.Label>
+            <strong>Confirm Password</strong>
+          </Form.Label>
           <Form.Control
             type="password"
+            style={{
+              width: '500px',
+              border: '1px solid #000',
+              borderRadius: '5px',
+            }}
             onChange={(e) => setConfirmPassword(e.target.value)}
           />
         </Form.Group>

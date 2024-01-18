@@ -47,9 +47,9 @@ function HomeScreen() {
   return (
     <div>
       <Helmet>
-        <title>TouchupXS - Express King</title>
+        <title>Touch up XS-Express King</title>
       </Helmet>
-      <h1>Featured Products</h1>
+      <h2>Featured Products</h2>
       <div className="products">
         {loading ? (
           <LoadingBox />
@@ -57,9 +57,9 @@ function HomeScreen() {
           <MessageBox variant="danger">{error}</MessageBox>
         ) : (
           ///// Changing product screen to bootstrap Discarded the previous|| Used the previous code for this in Products.js
-          <Row>
+          <Row xs={1} sm={2} md={4} lg={5}>
             {products.map((product) => (
-              <Col key={product.slug} sm={6} md={4} lg={3} className="mb-3">
+              <Col key={product.slug} className="mb-3">
                 <Product product={product}></Product>
               </Col>
             ))}

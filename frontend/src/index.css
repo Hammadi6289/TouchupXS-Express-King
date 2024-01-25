@@ -26,6 +26,13 @@ main {
   color: #ffc000;
 }
 
+.button-container {
+  position: fixed;
+  top: 10px; /* Adjust the top value to your preference */
+  left: 10px; /* Adjust the left value to your preference */
+  z-index: 999; /* Ensure it's above other elements */
+}
+
 .products {
   display: flex;
   flex-wrap: wrap;
@@ -70,19 +77,19 @@ checkout-steps > div {
   font-weight: bold;
 }
 .side-navbar {
-  width: 240px;
+  width: 300px;
   height: 100%;
   position: absolute;
   left: -300px;
-  background-color: #100901;
+  background-color: #f8f8f8;
   transition: 0.5s;
 }
 
 .site-container {
-  transition: 0.4s;
+  transition: 0.3s;
 }
 .active-cont {
-  margin-left: 240px;
+  margin-left: 300px;
 }
 .active-nav {
   left: 0;
@@ -94,4 +101,7 @@ checkout-steps > div {
   border-left: 2px solid #cc6c5e; /* Adjust the color and thickness as needed */
   height: 150%;
   margin: 0 auto;
+}
+.custom-border {
+  border: 2px solid #000; /* You can adjust the border width and color as needed */
 }

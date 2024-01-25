@@ -51,87 +51,128 @@ export default function DashboardScreen() {
     fetchData();
   }, [userInfo]);
 
+  const chartOptions = {
+    // Add more colors as needed
+    colors: ['#4285F4', '#0F9D58', '#F4B400', '#DB4437'],
+    // Additional options...
+  };
+
   return (
     <div>
-      <h1>Dashboard</h1>
+      <h1 style={{ textAlign: 'center', marginBottom: '20px' }}>Dashboard</h1>
       {loading ? (
         <LoadingBox />
       ) : error ? (
         <MessageBox variant="danger">{error}</MessageBox>
       ) : (
         <>
-          <Row>
-            <Col md={2}>
-              <Card>
-                <Card.Body>
-                  <Card.Title>
-                    {summary.users && summary.users[0]
-                      ? summary.users[0].numUsers
-                      : 0}
-                  </Card.Title>
-                  <Card.Text> Users</Card.Text>
-                </Card.Body>
-              </Card>
-            </Col>
-            <Col md={2}>
-              <Card>
-                <Card.Body>
-                  <Card.Title>
-                    {summary.orders && summary.users[0]
-                      ? summary.orders[0].numOrders
-                      : 0}
-                  </Card.Title>
-                  <Card.Text> Orders Shipped</Card.Text>
-                </Card.Body>
-              </Card>
-            </Col>
-            <Col md={2}>
-              <Card>
-                <Card.Body>
-                  <Card.Title>
-                    $
-                    {summary.orders && summary.users[0]
-                      ? summary.orders[0].totalSales.toFixed(2)
-                      : 0}
-                  </Card.Title>
-                  <Card.Text> Revenue</Card.Text>
-                </Card.Body>
-              </Card>
-            </Col>
-          </Row>
-          <div className="my-3">
-            <h2>Overview</h2>
+          <div style={{ marginBottom: '20px' }}>
+            <Row>
+              <Col md={4}>
+                <Card
+                  className="custom-border"
+                  style={{
+                    boxShadow: '0 4px 8px rgba(0, 0, 0, 0.1)',
+                    borderRadius: '10px',
+                  }}
+                >
+                  <Card.Body>
+                    <Card.Title
+                      style={{ fontSize: '24px', fontWeight: 'bold' }}
+                    >
+                      {summary.users && summary.users[0]
+                        ? summary.users[0].numUsers
+                        : 0}
+                    </Card.Title>
+                    <Card.Text style={{ color: '#555' }}> Users</Card.Text>
+                  </Card.Body>
+                </Card>
+              </Col>
+              <Col md={4}>
+                <Card
+                  className="custom-border"
+                  style={{
+                    boxShadow: '0 4px 8px rgba(0, 0, 0, 0.1)',
+                    borderRadius: '10px',
+                  }}
+                >
+                  <Card.Body>
+                    <Card.Title
+                      style={{ fontSize: '24px', fontWeight: 'bold' }}
+                    >
+                      {summary.orders && summary.users[0]
+                        ? summary.orders[0].numOrders
+                        : 0}
+                    </Card.Title>
+                    <Card.Text style={{ color: '#555' }}>
+                      {' '}
+                      Orders Shipped
+                    </Card.Text>
+                  </Card.Body>
+                </Card>
+              </Col>
+              <Col md={4}>
+                <Card
+                  className="custom-border"
+                  style={{
+                    boxShadow: '0 4px 8px rgba(0, 0, 0, 0.1)',
+                    borderRadius: '10px',
+                  }}
+                >
+                  <Card.Body>
+                    <Card.Title
+                      style={{ fontSize: '24px', fontWeight: 'bold' }}
+                    >
+                      $
+                      {summary.orders && summary.users[0]
+                        ? summary.orders[0].totalSales.toFixed(2)
+                        : 0}
+                    </Card.Title>
+                    <Card.Text style={{ color: '#555' }}> Revenue</Card.Text>
+                  </Card.Body>
+                </Card>
+              </Col>
+            </Row>
+          </div>
+
+          <div className="my-4">
+            <h2 style={{ textAlign: 'left' }}>Overview</h2>
             {summary.dailyOrders.length === 0 ? (
               <MessageBox>No Sale</MessageBox>
             ) : (
               <Chart
-                width="80%"
-                height="300px"
+                width="100%" // Set width to 100%
+                height="400px"
                 chartType="AreaChart"
-                //chartType="Histogram"
                 loader={<div>Loading Chart...</div>}
+                options={chartOptions}
                 data={[
-                  ['Date', 'Sales'],
-                  ...summary.dailyOrders.map((x) => [x._id, x.sales]),
+                  ['Date', 'Sales', { role: 'style' }], // Add a style role for colors
+                  ...summary.dailyOrders.map((x) => [
+                    x._id,
+                    x.sales,
+                    'color: #4285F4',
+                  ]), // Set color for each data point
                 ]}
-              ></Chart>
+              />
             )}
           </div>
-          <div className="my-3">
-            <h2>Sales by Categories</h2>
+          <div className="my-4">
+            <h2 style={{ textAlign: 'left' }}>Sales by Categories</h2>
             {summary.productCategories.length === 0 ? (
               <MessageBox>No Category</MessageBox>
             ) : (
               <Chart
-                width="80%"
-                height="300px"
+                width="100%"
+                height="400px"
                 chartType="PieChart"
                 loader={<div>Loading Chart...</div>}
+                options={chartOptions}
                 data={[
                   ['Category', 'Products'],
                   ...summary.productCategories.map((x) => [x._id, x.count]),
                 ]}
-              ></Chart>
+              />
             )}
           </div>
         </>

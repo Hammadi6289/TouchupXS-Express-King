@@ -30,6 +30,7 @@ import ProtectedRoute from './components/ProtectedRoute';
 import DashboardScreen from './screens/DashboardScreen';
 import AdminRoute from './components/AdminRoute';
 import ProductListScreen from './screens/ProductListScreen';
+import ProductEditScreen from './screens/ProductEditScreen';
 
 function App() {
   const { state, dispatch: ctxDispatch } = useContext(Store);
@@ -70,6 +71,14 @@ function App() {
             : 'd-flex flex-column site-container'
         }
       >
+        <div className="button-container">
+          <Button
+            variant="dark"
+            onClick={() => setSidebarIsOpen(!sidebarIsOpen)}
+          >
+            <i className="fas fa-bars"></i>
+          </Button>
+        </div>
         <ToastContainer position="bottom-center" limit={1} />
         <header>
           <Navbar bg="dark" variant="dark" expand="lg">
@@ -81,12 +90,6 @@ function App() {
                   style={{ height: '50px', width: '200px' }}
                 />
               </Link>
-              <Button
-                variant="dark"
-                onClick={() => setSidebarIsOpen(!sidebarIsOpen)}
-              >
-                <i className="fas fa-bars"></i>
-              </Button>
 
               <LinkContainer to="/">
                 <Navbar.Brand>Touch Up XS-Express King</Navbar.Brand>
@@ -164,13 +167,19 @@ function App() {
           }
         >
           <Nav className="flex-column text-white w-100 p-2">
-            <Nav.Item>
+            {/* Add spacing with CSS margin or padding */}
+            <Nav.Item
+              style={{ marginBottom: '50px', color: 'black' }}
+            ></Nav.Item>
+
+            <Nav.Item style={{ marginBottom: '40px', color: 'black' }}>
               <strong>Categories</strong>
             </Nav.Item>
+
             {categories.map((category) => (
               <Nav.Item key={category}>
                 <LinkContainer
-                  //  to={`/search?category=${category}`}
+                  // to={`/search?category=${category}`}
                   to={`/search/category=${category}`}
                   onClick={() => setSidebarIsOpen(false)}
                 >
@@ -236,7 +245,14 @@ function App() {
                   </AdminRoute>
                 }
               ></Route>
-
+              <Route
+                path="/admin/product/:id"
+                element={
+                  <AdminRoute>
+                    <ProductEditScreen />
+                  </AdminRoute>
+                }
+              ></Route>
               <Route path="/" element={<HomeScreen />} />
             </Routes>
           </Container>

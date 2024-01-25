@@ -19,7 +19,7 @@ const Product = mongoose.model('Product', productSchema);
 export default Product;
 
 //-----------------------------------------------------------------------------------//
-//backticks template literal exercises
+//backticks template literal exerc  ises
 const name = 'Hammad';
 const greetings = `Hello, $(name)!`;
 console.log(greetings); // output is Hello, Hammad!

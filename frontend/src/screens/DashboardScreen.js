@@ -52,9 +52,39 @@ export default function DashboardScreen() {
   }, [userInfo]);
 
   const chartOptions = {
-    // Add more colors as needed
-    colors: ['#4285F4', '#0F9D58', '#F4B400', '#DB4437'],
-    // Additional options...
+    margin: ' 0 auto', // Add this line to center the chart
+    // your existing options...
+    colors: [
+      '#FF5733',
+      '#FFC300',
+      '#33FF57',
+      '#3355FF',
+      '#FF33A1',
+      '#33FFEC',
+      '#FF5733',
+      '#FFC300',
+      '#33FF57',
+      '#3355FF',
+      '#FF33A1',
+      '#33FFEC',
+      '#FF5733',
+      '#FFC300',
+      '#33FF57',
+      '#3355FF',
+      '#FF33A1',
+      '#33FFEC',
+      '#FF5733',
+      '#FFC300',
+      '#33FF57',
+      '#3355FF',
+      '#FF33A1',
+      '#33FFEC',
+      '#FF5733',
+      '#FFC300',
+      '#33FF57',
+      '#3355FF',
+      '#FF33A1',
+    ],
   };
 
   return (
@@ -164,7 +194,7 @@ export default function DashboardScreen() {
             ) : (
               <Chart
                 width="100%"
-                height="400px"
+                height="420px"
                 chartType="PieChart"
                 loader={<div>Loading Chart...</div>}
                 options={chartOptions}

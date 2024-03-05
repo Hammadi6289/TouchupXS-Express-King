@@ -284,7 +284,7 @@ AXIOS is used to fetch data from the backend
 AXIOS and FETCH are mostly the same Axios and fetch serve similar purposes, 
 but Axios offers a more user-friendly API, better error handling, and supports request/response transformation out of the box. 
 The choice between Axios and fetch often depends on personal preference and project requirements.
-used mostky in src -> Screens -> ScreenXyz.js
+used mostly in src -> Screens -> ScreenXyz.js
 Async operations and simplifies error handling
 Certainly! In JavaScript, the term "fetch" commonly refers to making HTTP requests to fetch data from a server. 
 The fetch function is a built-in feature in modern JavaScript

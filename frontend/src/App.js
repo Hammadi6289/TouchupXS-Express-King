@@ -1,55 +1,62 @@
 // import data from './data';
-import { BrowserRouter, Link, Route, Routes } from 'react-router-dom';
-import { toast, ToastContainer } from 'react-toastify';
-import 'react-toastify/dist/ReactToastify.css';
-import HomeScreen from './screens/HomeScreen';
-import ProductScreen from './screens/ProductScreen';
-import Navbar from 'react-bootstrap/Navbar';
-import Badge from 'react-bootstrap/Badge';
-import Nav from 'react-bootstrap/Nav';
-import NavDropdown from 'react-bootstrap/NavDropdown';
-import Container from 'react-bootstrap/Container';
-import { LinkContainer } from 'react-router-bootstrap';
-import React, { useContext, useEffect, useState } from 'react';
-import { Store } from './Store';
-import CartScreen from './screens/CartScreen';
-import SigninScreen from './screens/SigninScreen';
-import ShippingAddressScreen from './screens/ShippingAddressScreen';
-import SignupScreen from './screens/SignupScreen';
-import PaymentMethodScreen from './screens/PaymentMethodScreen';
-import PlaceOrderScreen from './screens/PlaceOrderScreen';
-import OrderScreen from './screens/OrderScreen';
-import OrderHistoryScreen from './screens/OrderHistoryScreen';
-import ProfileScreen from './screens/ProfileScreen';
-import Button from 'react-bootstrap/Button';
-import { getError } from './utils';
-import axios from 'axios';
-import SearchBox from './components/SearchBox';
-import SearchScreen from './screens/SearchScreen';
-import ProtectedRoute from './components/ProtectedRoute';
-import DashboardScreen from './screens/DashboardScreen';
-import AdminRoute from './components/AdminRoute';
-import ProductListScreen from './screens/ProductListScreen';
-import ProductEditScreen from './screens/ProductEditScreen';
-import OrderListScreen from './screens/OrderListScreen';
-import UserListScreen from './screens/UserListScreen';
-import UserEditScreen from './screens/UserEditScreen';
-import MapScreen from './screens/MapScreen';
+import {
+  BrowserRouter,
+  Link,
+  NavLink,
+  Route,
+  Routes,
+  useLocation,
+} from "react-router-dom";
+import { toast, ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
+import HomeScreen from "./screens/HomeScreen";
+import ProductScreen from "./screens/ProductScreen";
+import Navbar from "react-bootstrap/Navbar";
+import Badge from "react-bootstrap/Badge";
+import Nav from "react-bootstrap/Nav";
+import NavDropdown from "react-bootstrap/NavDropdown";
+import Container from "react-bootstrap/Container";
+import { LinkContainer } from "react-router-bootstrap";
+import React, { useContext, useEffect, useState } from "react";
+import { Store } from "./Store";
+import CartScreen from "./screens/CartScreen";
+import SigninScreen from "./screens/SigninScreen";
+import ShippingAddressScreen from "./screens/ShippingAddressScreen";
+import SignupScreen from "./screens/SignupScreen";
+import PaymentMethodScreen from "./screens/PaymentMethodScreen";
+import PlaceOrderScreen from "./screens/PlaceOrderScreen";
+import OrderScreen from "./screens/OrderScreen";
+import OrderHistoryScreen from "./screens/OrderHistoryScreen";
+import ProfileScreen from "./screens/ProfileScreen";
+import Button from "react-bootstrap/Button";
+import { getError } from "./utils";
+import axios from "axios";
+import SearchBox from "./components/SearchBox";
+import SearchScreen from "./screens/SearchScreen";
+import ProtectedRoute from "./components/ProtectedRoute";
+import DashboardScreen from "./screens/DashboardScreen";
+import AdminRoute from "./components/AdminRoute";
+import ProductListScreen from "./screens/ProductListScreen";
+import ProductEditScreen from "./screens/ProductEditScreen";
+import OrderListScreen from "./screens/OrderListScreen";
+import UserListScreen from "./screens/UserListScreen";
+import UserEditScreen from "./screens/UserEditScreen";
+import MapScreen from "./screens/MapScreen";
 
 function App() {
   const { state, dispatch: ctxDispatch } = useContext(Store);
   const { fullBox, cart, userInfo } = state;
+  const [sidebarIsOpen, setSidebarIsOpen] = useState(false);
+  const [dropdownOpen, setDropdownOpen] = useState(false);
+  const [categories, setCategories] = useState([]);
 
   const signoutHandler = () => {
-    ctxDispatch({ type: 'USER_SIGNOUT' });
-    localStorage.removeItem('userInfo');
-    localStorage.removeItem('shippingAddress');
-    localStorage.removeItem('paymentMethod');
-    window.location.href = '/signin';
+    ctxDispatch({ type: "USER_SIGNOUT" });
+    localStorage.removeItem("userInfo");
+    localStorage.removeItem("shippingAddress");
+    localStorage.removeItem("paymentMethod");
+    window.location.href = "/signin";
   };
-  const [sidebarIsOpen, setSidebarIsOpen] = useState(false);
-  const [dropdownOpen, setDropdownOpen] = useState(false); // Initialize dropdownOpen state
-  const [categories, setCategories] = useState([]);
 
   const handleDropdownToggle = () => {
     setDropdownOpen(!dropdownOpen);
@@ -66,101 +73,80 @@ function App() {
     };
     fetchCategories();
   }, []);
+
   return (
     <BrowserRouter>
-      <div
-        className={
-          sidebarIsOpen
-            ? fullBox
-              ? 'site-container active-cont d-flex flex-column full-box'
-              : 'site-container active-cont d-flex flex-column'
-            : fullBox
-            ? 'site-container d-flex flex-column full-box'
-            : 'site-container d-flex flex-column'
-        }
-      >
-        <div className="button-container">
-          <Button
-            variant="dark"
-            onClick={() => setSidebarIsOpen(!sidebarIsOpen)}
-          >
-            <i className="fas fa-bars"></i>
-          </Button>
-        </div>
-        <ToastContainer position="bottom-center" limit={1} />
+      <div className={fullBox ? "site-container full-box" : "site-container"}>
         <header>
-          <Navbar bg="dark" variant="dark" expand="lg">
+          <Navbar bg="dark" variant="dark" expand="lg" className="mb-4">
             <Container>
-              <Link to="/" style={{ marginRight: 'auto' }}>
+              <Button
+                variant="dark"
+                onClick={() => setSidebarIsOpen(!sidebarIsOpen)}
+                className="me-2"
+              >
+                <i className="fas fa-bars"></i>
+              </Button>
+              <Link to="/" className="navbar-brand">
                 <img
                   src="/images/TouchupXSLogo.png"
                   alt="Company Logo"
-                  style={{ height: '50px', width: '200px' }}
+                  style={{ height: "50px", width: "auto" }}
                 />
+                Touch Up XS-Express King
               </Link>
-
-              <LinkContainer to="/">
-                <Navbar.Brand>Touch Up XS-Express King</Navbar.Brand>
-              </LinkContainer>
               <Navbar.Toggle aria-controls="basic-navbar-nav" />
               <Navbar.Collapse id="basic-navbar-nav">
                 <SearchBox />
-                <Nav className="me-auto  w-100  justify-content-end">
-                  <Link to="/cart" className="nav-link">
-                    Cart
+                <Nav className="ms-auto">
+                  <NavLink to="/cart" className="nav-link">
+                    <i className="fas fa-shopping-cart me-1"></i>
+                    Cart{" "}
                     {cart.cartItems.length > 0 && (
-                      <Badge pill bg="danger">
+                      <Badge bg="danger">
                         {cart.cartItems.reduce((a, c) => a + c.quantity, 0)}
                       </Badge>
                     )}
-                  </Link>
+                  </NavLink>
                   {userInfo && userInfo.isAdmin && (
                     <NavDropdown title="Admin" id="admin-nav-dropdown">
-                      <LinkContainer to="/admin/dashboard">
-                        <NavDropdown.Item>Dashboard</NavDropdown.Item>
-                      </LinkContainer>
-                      <LinkContainer to="/admin/products">
-                        <NavDropdown.Item>Products</NavDropdown.Item>
-                      </LinkContainer>
-                      <LinkContainer to="/admin/orders">
-                        <NavDropdown.Item>Orders</NavDropdown.Item>
-                      </LinkContainer>
-                      <LinkContainer to="/admin/users">
-                        <NavDropdown.Item>Users</NavDropdown.Item>
-                      </LinkContainer>
+                      <NavLink to="/admin/dashboard" className="dropdown-item">
+                        Dashboard
+                      </NavLink>
+                      <NavLink to="/admin/products" className="dropdown-item">
+                        Products
+                      </NavLink>
+                      <NavLink to="/admin/orders" className="dropdown-item">
+                        Orders
+                      </NavLink>
+                      <NavLink to="/admin/users" className="dropdown-item">
+                        Users
+                      </NavLink>
                     </NavDropdown>
                   )}
                   {userInfo ? (
                     <NavDropdown
-                      title={
-                        <div onClick={handleDropdownToggle}>
-                          <div>{userInfo.name}</div>
-                          {dropdownOpen && <div>{userInfo.email}</div>}
-                        </div>
-                      }
+                      title={userInfo.name}
                       id="basic-nav-dropdown"
+                      align="end"
                       show={dropdownOpen}
                       onToggle={handleDropdownToggle}
                     >
-                      <LinkContainer to="/profile">
-                        <NavDropdown.Item>Update Profile</NavDropdown.Item>
-                      </LinkContainer>
-                      <LinkContainer to="/orderhistory">
-                        <NavDropdown.Item>Order History</NavDropdown.Item>
-                      </LinkContainer>
+                      <NavLink to="/profile" className="dropdown-item">
+                        Update Profile
+                      </NavLink>
+                      <NavLink to="/orderhistory" className="dropdown-item">
+                        Order History
+                      </NavLink>
                       <NavDropdown.Divider />
-                      <Link
-                        className="dropdown-item"
-                        to="#signout"
-                        onClick={signoutHandler}
-                      >
+                      <NavDropdown.Item onClick={signoutHandler}>
                         Sign Out
-                      </Link>
+                      </NavDropdown.Item>
                     </NavDropdown>
                   ) : (
-                    <Link className="nav-link" to="/signin">
+                    <NavLink to="/signin" className="nav-link">
                       Sign In
-                    </Link>
+                    </NavLink>
                   )}
                 </Nav>
               </Navbar.Collapse>
@@ -168,31 +154,21 @@ function App() {
           </Navbar>
         </header>
         <div
-          className={
-            sidebarIsOpen
-              ? 'active-nav side-navbar d-flex justify-content-between flex-wrap flex-column'
-              : 'side-navbar d-flex justify-content-between flex-wrap flex-column'
-          }
+          className={sidebarIsOpen ? "active-nav side-navbar" : "side-navbar"}
         >
-          <Nav className="flex-column text-white w-100 p-2">
-            {/* Add spacing with CSS margin or padding */}
-            <Nav.Item
-              style={{ marginBottom: '50px', color: 'black' }}
-            ></Nav.Item>
-
-            <Nav.Item style={{ marginBottom: '40px', color: 'black' }}>
+          <Nav className="flex-column">
+            <Nav.Item className="mb-4">
               <strong>Categories</strong>
             </Nav.Item>
-
             {categories.map((category) => (
               <Nav.Item key={category}>
-                <LinkContainer
-                  // to={`/search?category=${category}`}
-                  to={`/search/category=${category}`}
+                <NavLink
+                  to={`/search?category=${category}`}
+                  className="nav-link"
                   onClick={() => setSidebarIsOpen(false)}
                 >
-                  <Nav.Link>{category}</Nav.Link>
-                </LinkContainer>
+                  {category}
+                </NavLink>
               </Nav.Item>
             ))}
           </Nav>

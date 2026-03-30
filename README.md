@@ -2,6 +2,8 @@
 
 # Sequence
 
+### To start the project locally, npm start on frontend.... npm start on backend
+
 1. Intro
 2. Install Tools
 3. Create React App
